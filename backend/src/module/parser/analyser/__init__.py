@@ -1,4 +1,5 @@
 from .mikan_parser import mikan_parser
+from .nyaa_parser import nyaa_parser
 from .openai import OpenAIParser
 from .raw_parser import raw_parser
 from .tmdb_parser import tmdb_parser
