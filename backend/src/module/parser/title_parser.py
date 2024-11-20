@@ -9,7 +9,9 @@ from module.parser.analyser import (
     raw_parser,
     tmdb_parser,
     torrent_parser,
+    nyaa_parser
 )
+
 
 logger = logging.getLogger(__name__)
 
@@ -106,3 +108,7 @@ class TitleParser:
     @staticmethod
     def mikan_parser(homepage: str) -> tuple[str, str]:
         return mikan_parser(homepage)
+
+    @staticmethod
+    def nyaa_parser(homepage: str) -> tuple[str, str]:
+        return nyaa_parser(homepage)

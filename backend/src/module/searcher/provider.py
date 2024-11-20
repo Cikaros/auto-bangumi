@@ -10,6 +10,7 @@ def search_url(site: str, keywords: list[str]) -> RSSItem:
     if site in SEARCH_CONFIG.keys():
         url = re.sub(r"%s", search_str, SEARCH_CONFIG[site])
         parser = "mikan" if site == "mikan" else "tmdb"
+        parser = "nyaa" if site == "nyaa" else parser
         rss_item = RSSItem(
             url=url,
             aggregate=False,

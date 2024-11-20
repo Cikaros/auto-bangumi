@@ -21,6 +21,9 @@ class RSSAnalyser(TitleParser):
             except AttributeError:
                 logger.warning("[Parser] Mikan torrent has no homepage info.")
                 pass
+        elif rss.parser == "nyaa":
+            # 实现nyaa 解析器
+            bangumi.poster_link, bangumi.official_title = self.nyaa_parser(torrent.homepage)
         elif rss.parser == "tmdb":
             tmdb_title, season, year, poster_link = self.tmdb_parser(
                 bangumi.official_title, bangumi.season, settings.rss_parser.language
@@ -43,7 +46,7 @@ class RSSAnalyser(TitleParser):
         return rss_torrents
 
     def torrents_to_data(
-        self, torrents: list[Torrent], rss: RSSItem, full_parse: bool = True
+            self, torrents: list[Torrent], rss: RSSItem, full_parse: bool = True
     ) -> list:
         new_data = []
         for torrent in torrents:
@@ -64,7 +67,7 @@ class RSSAnalyser(TitleParser):
             return bangumi
 
     def rss_to_data(
-        self, rss: RSSItem, engine: RSSEngine, full_parse: bool = True
+            self, rss: RSSItem, engine: RSSEngine, full_parse: bool = True
     ) -> list[Bangumi]:
         rss_torrents = self.get_rss_torrents(rss.url, full_parse)
         torrents_to_add = engine.bangumi.match_list(rss_torrents, rss.url)
@@ -99,4 +102,3 @@ class RSSAnalyser(TitleParser):
             msg_en="Cannot parse this link.",
             msg_zh="无法解析此链接。",
         )
-
