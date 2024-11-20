@@ -101,8 +101,8 @@ export default defineConfig(({ mode }) => ({
   },
   server: {
     proxy: {
-      '^/api/.*': 'http://anime.npu.local',
-      '^/posters/.*': 'http://anime.npu.local',
+      '^/api/.*': 'http://192.168.0.100:7892',
+      '^/posters/.*': 'http://192.168.0.100:7892',
     },
   },
 }));
