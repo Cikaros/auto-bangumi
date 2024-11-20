@@ -23,7 +23,7 @@ class RSSAnalyser(TitleParser):
                 pass
         elif rss.parser == "nyaa":
             # 实现nyaa 解析器
-            bangumi.poster_link, bangumi.official_title = self.nyaa_parser(torrent.homepage)
+            pass
         elif rss.parser == "tmdb":
             tmdb_title, season, year, poster_link = self.tmdb_parser(
                 bangumi.official_title, bangumi.season, settings.rss_parser.language
