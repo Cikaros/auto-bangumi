@@ -16,7 +16,7 @@ class RSSAnalyser(TitleParser):
         if rss.parser == "mikan":
             try:
                 bangumi.poster_link, bangumi.official_title = self.mikan_parser(
-                    torrent.homepage
+                    torrent.url
                 )
             except AttributeError:
                 logger.warning("[Parser] Mikan torrent has no homepage info.")
