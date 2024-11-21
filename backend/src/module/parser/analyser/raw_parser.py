@@ -150,10 +150,11 @@ def process(raw_title: str):
     # 处理 前缀
     raw_name, season_raw, season = season_process(process_raw)
     # 处理 第n季
-    name_en, name_zh, name_jp = "", "", ""
+    name_en, name_zh, name_jp = content_title, content_title, content_title
     try:
-        name_en, name_zh, name_jp = name_process(raw_name)
-        # 处理 名字
+        if match_obj:
+            name_en, name_zh, name_jp = name_process(raw_name)
+            # 处理 名字
     except ValueError:
         pass
     # 处理 集数
@@ -188,5 +189,5 @@ def raw_parser(raw: str) -> Episode | None:
 
 
 if __name__ == "__main__":
-    title = "[动漫国字幕组&LoliHouse] THE MARGINAL SERVICE - 08 [WebRip 1080p HEVC-10bit AAC][简繁内封字幕]"
+    title = "最新11月无水订阅⑦】口爆颜射天花板！榨汁姬kiri_amari露脸性爱，多种高强度榨精做面膜，主打一个淫骚"
     print(raw_parser(title))
